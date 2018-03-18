@@ -264,16 +264,17 @@ bullpower<-function(h,top){
 
 
       if(g>1){
-        if(is.na(d_status[g])){
-          if(d_closes[(g-1),]==0 && is.na(d_status[g])){
+        if(!is.na(d_status[g])){
+          if(d_closes[(g-1),]==0 && d_status[g]==0){
             bea1<-g
           }
-          if(d_closes[f,]==0 && is.na(d_status[g])){
+          if(d_closes[f,]==0 && d_status[g]==0){
             bea2<-g
           }
           wength<-length((bea1+1):(bea2-1))
           if(wength<3){
             dc2[bea1:bea2]<-0
+            d_status[bea1:bea2]<-0
           }
         }
       }
@@ -297,6 +298,70 @@ bullpower<-function(h,top){
 
   }
   da4<-data.frame(dc,df,dc2,d_status,d_num)
+
+
+  ############# d4
+  datas<-1
+  nrows <-nrow(dc)
+
+  d4<-0
+
+  x<-0
+  g<-1
+  m<-1
+  n<-1
+  f<-2
+  st1<-0
+  st2<-0
+  wength<-0
+
+  while(x < nrows ){
+
+
+    for(i in dc[g,]){
+
+
+      d4[n]<-i
+      n<-n+1
+
+
+      if(g>1){
+        if(!is.na(d_status[g])){
+          if(d_closes[(g-1),]==0 && d_status[g]=='X'){
+            st1<-g
+          }
+          if(d_closes[f,]==0 && d_status[g]=='X'){
+            st2<-g
+          }
+          wength<-length((st1+1):(st2-1))
+          if(st1!=0 && st2!=0){
+            dc2[(st1+1):(st2-1)]<-NA
+            st1<-0
+            st2<-0
+          }
+        }
+      }
+
+
+    }###for
+
+    g<-g+1
+    x<-x+1
+    #n<-1
+    m<-m+1
+
+    if(f==NROW(dc)){
+
+      break
+
+    }else{
+
+      f<-f+1
+    }
+
+  }
+  da5<-data.frame(dc,df,dc2,d_status,d_num)
+
 
   bull<-d_status
 

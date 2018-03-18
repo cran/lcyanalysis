@@ -1,8 +1,8 @@
 Type: Package
 Package: lcyanalysis
 Title: Stock Data Analysis Functions
-Version: 1.0.0
-Date: 2017-10-29
+Version: 1.0.1
+Date: 2018-03-18
 Description: Analysis of stock data ups and downs trend, the stock technical analysis indicators function have trend line, reversal pattern and market trend.
 Author: Chun-Yu Liu [aut,cph],
         Shu-Nung Yao [rev,ths]
@@ -14,5 +14,5 @@ NeedsCompilation: no
 LazyData: true
 Repository: CRAN
 RoxygenNote: 6.0.1
-Packaged: 2017-11-03 13:56:52 UTC; liuchunyu
-Date/Publication: 2017-11-03 19:09:19 UTC
+Packaged: 2018-03-18 09:51:45 UTC; liuchunyu
+Date/Publication: 2018-03-18 09:59:37 UTC
