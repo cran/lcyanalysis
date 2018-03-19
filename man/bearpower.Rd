@@ -4,12 +4,14 @@
 \alias{bearpower}
 \title{bear power technical analysis function}
 \usage{
-bearpower(h,down)
+bearpower(h,down,day)
 }
 \arguments{
 \item{h}{an stock data}
 
 \item{down}{an rsi down horizon value}
+
+\item{day}{Days of data shown}
 }
 \value{
 an analysis of stock data for bear power technical analysis indicators
@@ -23,7 +25,7 @@ use RSI analysis of the strength of the stock market trend, analyze trends confo
 \examples{
 library(quantmod)
 aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
-bearpower(aapl,40)
+bearpower(aapl,40,5)
 }
 \author{
 Chun-Yu Liu <john401528@gmail.com>

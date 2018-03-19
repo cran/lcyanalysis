@@ -1,9 +1,10 @@
 #' bull power technical analysis function
 #' @description  bull power technical analysis function is to analyze the reversal pattern conform to the rising trend and bull market of stock data
 #' @details use RSI analysis of the strength of the stock market trend, analyze trends conform to bull power, and RSI function need library 'TTR'
-#' @usage bullpower(h,top)
+#' @usage bullpower(h,top,day)
 #' @param h an stock data
 #' @param top an rsi rise horizon value
+#' @param day Days of data shown
 #' @return an analysis of stock data for bull power technical analysis indicators
 #' @author Chun-Yu Liu <john401528@gmail.com>
 #' @importFrom quantmod Cl getSymbols
@@ -13,20 +14,20 @@
 #' @examples
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
-#' bullpower(aapl,60)
+#' bullpower(aapl,60,5)
 #' @export
 
 
 #example to use
 #if use 'quantmod' chartSeries:
 #aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
-#addTA(bullpower(aapl,60),on=1,col='red')
+#addTA(bullpower(aapl,60,5),on=1,col='red')
 #or
 #if use 'highcharter' highchart:
-#hc_add_series(bullpower(aapl,60),type = "line",name = "Bull power", color = hex_to_rgba("red", 1))
+#hc_add_series(bullpower(aapl,60,5),type = "line",name = "Bull power", color = hex_to_rgba("red", 1))
 
 
-bullpower<-function(h,top){
+bullpower<-function(h,top,day){
 
   requireNamespace('quantmod')
   requireNamespace('TTR')
@@ -272,7 +273,7 @@ bullpower<-function(h,top){
             bea2<-g
           }
           wength<-length((bea1+1):(bea2-1))
-          if(wength<3){
+          if(wength<=day){
             dc2[bea1:bea2]<-0
             d_status[bea1:bea2]<-0
           }

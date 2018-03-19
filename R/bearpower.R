@@ -1,9 +1,10 @@
 #' bear power technical analysis function
 #' @description  bear power technical analysis function is to analyze the reversal pattern conform to the downward trend and bear market of stock data
 #' @details use RSI analysis of the strength of the stock market trend, analyze trends conform to bear power, and RSI function need library 'TTR'
-#' @usage bearpower(h,down)
+#' @usage bearpower(h,down,day)
 #' @param h an stock data
 #' @param down an rsi down horizon value
+#' @param day Days of data shown
 #' @return an analysis of stock data for bear power technical analysis indicators
 #' @author Chun-Yu Liu <john401528@gmail.com>
 #' @importFrom quantmod Cl getSymbols
@@ -13,20 +14,20 @@
 #' @examples
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
-#' bearpower(aapl,40)
+#' bearpower(aapl,40,5)
 #' @export
 
 
 #example to use
 #if use 'quantmod' chartSeries:
 #aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
-#addTA(bearpower(aapl,40),on=1,col='green')
+#addTA(bearpower(aapl,40,5),on=1,col='green')
 #or
 #if use 'highcharter' highchart:
-#hc_add_series(bearpower(aapl,40),type = "line",name = "bear power", color = hex_to_rgba("green", 1))
+#hc_add_series(bearpower(aapl,40,5),type = "line",name = "bear power", color = hex_to_rgba("green", 1))
 
 
-bearpower<-function(h,down){
+bearpower<-function(h,down,day){
 
   requireNamespace('quantmod')
   requireNamespace('TTR')
@@ -271,7 +272,7 @@ bearpower<-function(h,down){
             bea2<-g
           }
           wength<-length((bea1+1):(bea2-1))
-          if(wength<3){
+          if(wength<=day){
             dc2[bea1:bea2]<-0
             d_status[bea1:bea2]<-0
           }

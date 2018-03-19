@@ -4,12 +4,14 @@
 \alias{bullpower}
 \title{bull power technical analysis function}
 \usage{
-bullpower(h,top)
+bullpower(h,top,day)
 }
 \arguments{
 \item{h}{an stock data}
 
 \item{top}{an rsi rise horizon value}
+
+\item{day}{Days of data shown}
 }
 \value{
 an analysis of stock data for bull power technical analysis indicators
@@ -23,7 +25,7 @@ use RSI analysis of the strength of the stock market trend, analyze trends confo
 \examples{
 library(quantmod)
 aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
-bullpower(aapl,60)
+bullpower(aapl,60,5)
 }
 \author{
 Chun-Yu Liu <john401528@gmail.com>
