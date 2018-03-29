@@ -13,14 +13,14 @@
 #' @importFrom xts reclass
 #' @examples
 #' library(quantmod)
-#' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' bearpower(aapl,40,5)
 #' @export
 
 
 #example to use
 #if use 'quantmod' chartSeries:
-#aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #addTA(bearpower(aapl,40,5),on=1,col='green')
 #or
 #if use 'highcharter' highchart:
@@ -28,11 +28,6 @@
 
 
 bearpower<-function(h,down,day){
-
-  requireNamespace('quantmod')
-  requireNamespace('TTR')
-  requireNamespace('xts')
-  requireNamespace('stats')
 
   df<-RSI(Cl(h))
   da<-Cl(h)
@@ -149,6 +144,9 @@ bearpower<-function(h,down,day){
             }
           }
         }
+        #if(dc2[f]==0){
+        # d_status[f-1]<-"X"
+        #}
       }
 
     }
@@ -238,6 +236,8 @@ bearpower<-function(h,down,day){
   da3<-data.frame(dc,df,dc2,d_status,d_num)
 
 
+
+
   ############# d3
   datas<-1
   nrows <-nrow(dc)
@@ -272,7 +272,7 @@ bearpower<-function(h,down,day){
             bea2<-g
           }
           wength<-length((bea1+1):(bea2-1))
-          if(wength<=day){
+          if(wength<day){
             dc2[bea1:bea2]<-0
             d_status[bea1:bea2]<-0
           }
@@ -362,8 +362,6 @@ bearpower<-function(h,down,day){
   }
   da5<-data.frame(dc,df,dc2,d_status,d_num)
 
-
-
   bear<-d_status
 
 
@@ -373,6 +371,8 @@ bearpower<-function(h,down,day){
   dc2<-ifelse( dc2==0, NA, dc2 )
 
   cd<-reclass( dc2, h[1:length(dc2)] )
+
+  #da4-cbind(dc,df,cd)
 
   return(cd)
 

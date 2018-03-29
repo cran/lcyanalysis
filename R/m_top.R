@@ -16,14 +16,14 @@
 #' @importFrom xts reclass
 #' @examples\dontrun{
 #' library(quantmod)
-#' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' m_top(aapl,60,40,4,20)
 #' }
 #' @export
 
 #example to use
 #if use 'quantmod' chartSeries:
-#aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #addTA(m_top(aapl,60,40,20),on=1,col='green')
 #or
 #if use 'highcharter' highchart:

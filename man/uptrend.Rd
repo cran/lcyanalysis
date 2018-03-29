@@ -26,7 +26,7 @@ use the up_function analysis data to analysis the rising trend line
 }
 \examples{
 library(quantmod)
-aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 uptrend(aapl,20,1)
 }
 \author{

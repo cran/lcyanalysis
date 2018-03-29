@@ -29,7 +29,7 @@ use RSI analysis of the strength of the stock market trend, analyze trends confo
 \examples{
 \dontrun{
 library(quantmod)
-aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 v_bottom(aapl,60,40,3,20)
 }
 }

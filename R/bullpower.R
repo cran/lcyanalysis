@@ -13,14 +13,14 @@
 #' @importFrom xts reclass
 #' @examples
 #' library(quantmod)
-#' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' bullpower(aapl,60,5)
 #' @export
 
 
 #example to use
 #if use 'quantmod' chartSeries:
-#aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #addTA(bullpower(aapl,60,5),on=1,col='red')
 #or
 #if use 'highcharter' highchart:
@@ -28,12 +28,6 @@
 
 
 bullpower<-function(h,top,day){
-
-  requireNamespace('quantmod')
-  requireNamespace('TTR')
-  requireNamespace('xts')
-  requireNamespace('stats')
-
 
   df<-RSI(Cl(h))
   da<-Cl(h)
@@ -148,6 +142,9 @@ bullpower<-function(h,top,day){
             }
           }
         }
+        #if(dc2[f]==0){
+        # d_status[f-1]<-"X"
+        #}
       }
 
     }
@@ -273,7 +270,7 @@ bullpower<-function(h,top,day){
             bea2<-g
           }
           wength<-length((bea1+1):(bea2-1))
-          if(wength<=day){
+          if(wength<day){
             dc2[bea1:bea2]<-0
             d_status[bea1:bea2]<-0
           }
@@ -328,10 +325,10 @@ bullpower<-function(h,top,day){
 
       if(g>1){
         if(!is.na(d_status[g])){
-          if(d_closes[(g-1),]==0 && d_status[g]=='X'){
+          if(d_closes[(g-1),]==0 && d_status[g]=='O'){
             st1<-g
           }
-          if(d_closes[f,]==0 && d_status[g]=='X'){
+          if(d_closes[f,]==0 && d_status[g]=='O'){
             st2<-g
           }
           wength<-length((st1+1):(st2-1))
@@ -362,7 +359,6 @@ bullpower<-function(h,top,day){
 
   }
   da5<-data.frame(dc,df,dc2,d_status,d_num)
-
 
   bull<-d_status
 

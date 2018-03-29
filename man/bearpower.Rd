@@ -24,7 +24,7 @@ use RSI analysis of the strength of the stock market trend, analyze trends confo
 }
 \examples{
 library(quantmod)
-aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 bearpower(aapl,40,5)
 }
 \author{

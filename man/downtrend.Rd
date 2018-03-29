@@ -26,7 +26,7 @@ use the down_function analysis data to analysis the downward trend line
 }
 \examples{
 library(quantmod)
-aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 downtrend(aapl,20,1)
 }
 \author{

@@ -14,7 +14,7 @@
 #' @importFrom xts reclass xts
 #' @examples
 #' library(quantmod)
-#' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' up_function(aapl,20,1)
 #' @export
 

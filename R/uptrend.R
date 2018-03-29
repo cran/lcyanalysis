@@ -16,14 +16,14 @@
 #' @importFrom zoo index
 #' @examples
 #' library(quantmod)
-#' aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' uptrend(aapl,20,1)
 #' @export
 
 
 #example to use
 #if use 'quantmod' chartSeries:
-#aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+#aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #addTA(uptrend(aapl,20,1),on=1,col='red')
 #or
 #if use 'highcharter' highchart:

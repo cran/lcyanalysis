@@ -32,7 +32,7 @@ the month value must be more than one month
 \examples{
 \dontrun{
 library(quantmod)
-aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 m_top(aapl,60,40,4,20)
 }
 }

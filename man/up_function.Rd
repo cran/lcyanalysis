@@ -26,7 +26,7 @@ up_function is to sort the stock data by the set number of days and to filter th
 }
 \examples{
 library(quantmod)
-aapl<-getSymbols("AAPL",src="google",auto.assign=FALSE)
+aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 up_function(aapl,20,1)
 }
 \author{
