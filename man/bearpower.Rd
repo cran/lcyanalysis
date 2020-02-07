@@ -23,9 +23,11 @@ bear power technical analysis function is to analyze the reversal pattern confor
 use RSI analysis of the strength of the stock market trend, analyze trends conform to bear power, and RSI function need library 'TTR'
 }
 \examples{
+\dontrun{
 library(quantmod)
 aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 bearpower(aapl,40,5)
+}
 }
 \author{
 Chun-Yu Liu <john401528@gmail.com>

@@ -25,9 +25,11 @@ Up trend line technical analysis function is to analyze the rising trend of stoc
 use the up_function analysis data to analysis the rising trend line
 }
 \examples{
+\dontrun{
 library(quantmod)
 aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 uptrend(aapl,20,1)
+}
 }
 \author{
 Chun-Yu Liu <john401528@gmail.com>

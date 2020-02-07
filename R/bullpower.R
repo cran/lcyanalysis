@@ -12,9 +12,11 @@
 #' @importFrom stats approx
 #' @importFrom xts reclass
 #' @examples
+#' \dontrun{
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' bullpower(aapl,60,5)
+#' }
 #' @export
 
 

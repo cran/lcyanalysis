@@ -15,9 +15,11 @@
 #' @importFrom utils head tail
 #' @importFrom zoo index
 #' @examples
+#' \dontrun{
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' uptrend(aapl,20,1)
+#' }
 #' @export
 
 

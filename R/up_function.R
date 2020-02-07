@@ -13,9 +13,11 @@
 #' @importFrom stats approx
 #' @importFrom xts reclass xts
 #' @examples
+#' \dontrun{
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' up_function(aapl,20,1)
+#' }
 #' @export
 
 up_function<-function(h,day,num){

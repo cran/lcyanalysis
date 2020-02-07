@@ -14,7 +14,8 @@
 #' @importFrom TTR RSI
 #' @importFrom stats approx
 #' @importFrom xts reclass
-#' @examples\dontrun{
+#' @examples
+#' \dontrun{
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' m_top(aapl,60,40,4,20)

@@ -13,7 +13,8 @@
 #' @importFrom TTR RSI
 #' @importFrom stats approx
 #' @importFrom xts reclass
-#' @examples\dontrun{
+#' @examples
+#' \dontrun{
 #' library(quantmod)
 #' aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 #' v_bottom(aapl,60,40,3,20)
@@ -529,7 +530,7 @@ v_bottom <- function(h,top,down,month,day){
                 s<-1
                 t<-0
                 wrun<-1
-                if(lotr2!=0 && t2==0){
+                if(lotr2!=0 && t2==0 || f<g){
                   f<-lotr1+1
                   t2<-1
                   te<-lotr1+1
@@ -542,7 +543,7 @@ v_bottom <- function(h,top,down,month,day){
 
 
             ###lotr2
-            if(t==0 && !is.na(d_status[f])){
+            if(t==0 && !is.na(d_status[f]) && f>g){
               mength<-round(length(lotr1:f)/30)
               if(mength<month && is.na(d_trend[f])){
                 if(d5[f,]!=0 && d_status[f,]=="O" && d5[lotr1]<=d5[f] && "X" %in% c(d_status[lotr1:f]) && lotr1<f){
@@ -570,7 +571,7 @@ v_bottom <- function(h,top,down,month,day){
               checkv<-lotr2+10
 
               if(lotr2+day<nrow(da)){
-                if((sum(df[((lotr2+1):(lotr2+day))])/day)>top && d1[lotr2+day]>d1[lotr2] && d0[lotr2+day]>d0[lotr2] ){
+                if((sum(df[((lotr2+1):(lotr2+day))])/day)>top && d1[lotr2+day]>d1[lotr2] ){
                   checkm<-1
                 }else{
                   checkm<-0

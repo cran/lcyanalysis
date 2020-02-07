@@ -25,9 +25,11 @@ Down trend line analysis of the down_function is to sort and analysis the stock 
 down_function is to sort the stock data by the set number of days and to filter the data of rising trend
 }
 \examples{
+\dontrun{
 library(quantmod)
 aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 down_function(aapl,20,1)
+}
 }
 \author{
 Chun-Yu Liu <john401528@gmail.com>

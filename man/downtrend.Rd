@@ -25,9 +25,11 @@ Down trend line technical analysis function is to analyze the downward trend of 
 use the down_function analysis data to analysis the downward trend line
 }
 \examples{
+\dontrun{
 library(quantmod)
 aapl<-getSymbols("AAPL",src="yahoo",auto.assign=FALSE)
 downtrend(aapl,20,1)
+}
 }
 \author{
 Chun-Yu Liu <john401528@gmail.com>
